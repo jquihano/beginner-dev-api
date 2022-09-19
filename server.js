@@ -10,6 +10,6 @@ app.get('/', (req,res) => {
     res.sendFile(__dirname + '/index.html')
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`The server is running on port: ${PORT}`)
 })
