@@ -10,7 +10,7 @@ const resources = {
     'the odin project': {
         'name': 'The Odin Project',
         'url': 'theodinproject.com',
-        'description': 'The Odin Project is one of those "What I wish I had when I was learning" resources. Not everyone has access to a computer science education or the funds to attend an intensive coding school and neither of those is right for everyone anyway. This project is designed to fill in the gap for people who are trying to hack it on their own but still want a high quality education.',
+        'description': 'The Odin Project provides a free open source coding curriculum that can be taken entirely online. It has helped many students get hired as developers and has assisted countless others in learning enough programming to work on their own personal projects.',
         'keywords': ['web development', 'javascript', 'html', 'css', 'ruby on rails'],
         'price': 'free',
     },
@@ -34,15 +34,23 @@ const resources = {
         'description': 'An online, free, 30 week bootcamp, meant to bring you from zero programming skills to employable taught by Leon Noel. Focusing on learning and building frontend and backend applications.',
         'keywords': ['web development', 'javascript', 'html', 'css', 'cybe'],
         'price': 'free',
+    },
+    'unknown': {
+        'name': 'unknown'
     }
 }
 
-app.get('/', (req,res) => {
+app.get('/api', (req,res) => {
     res.sendFile(__dirname + '/index.html')
 });
 
 app.get('/api/:keywords', (req, res)=> {
-    console.log(req.params.tag)
+    const resource = req.params.keywords;
+    if(resources[resource]){
+        res.json(resources[resource])
+    } else {
+        res.json(resources['unknown'])
+    }
 })
 
 app.listen(process.env.PORT || PORT, () => {
