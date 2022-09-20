@@ -32,7 +32,7 @@ const resources = {
         'name': '100Devs',
         'url': 'leonnoel.com',
         'description': 'An online, free, 30 week bootcamp, meant to bring you from zero programming skills to employable taught by Leon Noel. Focusing on learning and building frontend and backend applications.',
-        'keywords': ['web development', 'javascript', 'html', 'css', 'cybe'],
+        'keywords': ['web development', 'javascript', 'html', 'css'],
         'price': 'free',
     },
     'unknown': {
